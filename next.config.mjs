@@ -1,9 +1,10 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
   images: {
     remotePatterns: [],
+  },
+  experimental: {
+    appDir: 'true',
   },
 };
 
