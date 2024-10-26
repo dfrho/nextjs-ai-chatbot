@@ -21,7 +21,7 @@ const title = 'Solutions Engineering Chatbot Template';
 const description =
   'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.';
 const projectUrl = 'https://quirkychat.vercel.app/';
-const ogImage = '@/images/og-image.jpg';
+const ogImage = '/images/og-image.jpg';
 
 const LIGHT_THEME_COLOR = 'hsl(0 0% 100%)';
 const DARK_THEME_COLOR = 'hsl(240deg 10% 3.92%)';
