@@ -8,7 +8,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://quirkychat.vercel.app/'),
-  title: 'Solutions Engineering Chatbot Template',
+  title: 'Chatbot Template',
   description:
     'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.',
 };
@@ -17,7 +17,7 @@ export const viewport = {
   maximumScale: 1, // Disable auto-zoom on mobile Safari
 };
 
-const title = 'Solutions Engineering Chatbot Template';
+const title = 'Chatbot Template';
 const description =
   'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.';
 const projectUrl = 'https://quirkychat.vercel.app/';
