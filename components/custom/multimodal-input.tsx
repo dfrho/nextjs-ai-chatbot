@@ -21,14 +21,53 @@ import { Textarea } from '../ui/textarea';
 
 const suggestedActions = [
   {
-    title: 'What is the weather',
-    label: 'in San Francisco?',
-    action: 'What is the weather in San Francisco?',
+    title: 'General Information:',
+    label: 'Can you help me find information on the history of the internet?',
+    action:
+      'Can you help me find information on the history of the internet? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included. ',
   },
   {
-    title: "Answer like I'm 5,",
-    label: 'why is the sky blue?',
-    action: "Answer like I'm 5, why is the sky blue?",
+    title: 'Weather:',
+    label: "What's the weather like in Paris today?",
+    action:
+      "What's the weather like in Paris today? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.",
+  },
+  {
+    title: 'How-To Guides:',
+    label: 'How do I bake a chocolate cake?',
+    action:
+      'How do I bake a chocolate cake? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+  },
+  {
+    title: 'Summarization:',
+    label:
+      'Can you summarize the key points of this article on climate change?',
+    action:
+      'Can you summarize the key points of this article on climate change? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+  },
+  {
+    title: 'News and Updates:',
+    label: 'What are the latest news headlines in technology?',
+    action:
+      'What are the latest news headlines in technology? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+  },
+  {
+    title: 'Translation:',
+    label: "Translate this text into Spanish: 'Hello, how are you?'",
+    action:
+      "Translate this text into Spanish: 'Hello, how are you? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.'",
+  },
+  {
+    title: 'Tips and Advice:',
+    label: 'What are some tips for improving my public speaking skills?',
+    action:
+      'What are some tips for improving my public speaking skills? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+  },
+  {
+    title: 'Recommendations:',
+    label: 'Can you recommend a good book on personal development?',
+    action:
+      'Can you recommend a good book on personal development? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included. ',
   },
 ];
 
@@ -127,7 +166,7 @@ export function MultimodalInput({
 
   return (
     <div className="relative w-full flex flex-col gap-4">
-      {messages.length === 0 && uploadQueue.length === 0 && (
+      {messages.length === 0 && (
         <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
           {suggestedActions.map((suggestedAction, index) => (
             <motion.div
