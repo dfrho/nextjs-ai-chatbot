@@ -20,14 +20,99 @@ import { Textarea } from '../ui/textarea';
 
 const suggestedActions = [
   {
-    title: 'What is the weather',
-    label: 'in San Francisco?',
-    action: 'What is the weather in San Francisco?',
+    title: 'How do you ensure data security?',
+    label: 'Explain your security posture.',
+    action: 'How does a solutions engineer help buyers ensure data security?',
   },
   {
-    title: "Answer like I'm 5,",
-    label: 'what does a sales engineer do?',
-    action: "Answer like I'm 5, what does a sales engineer do?",
+    title: 'How to integrate with cloud services?',
+    label: 'How do you integrate with cloud services?',
+    action:
+      'Explain broadly how a data engineer performs event or data stream integration with GCP, AWS, and Azure.',
+  },
+  {
+    title: 'What is the role of a Solutions Engineer?',
+    label: 'Describe the responsibilities of a Solutions Engineer.',
+    action: 'What is the role of a Solutions Engineer?',
+  },
+  {
+    title: 'What is a good POC cycle?',
+    label: 'What is a good POC cycle?',
+    action:
+      'Describe the best practices for a technical POC cycle using MEDDICC, then Sales Challenger methodologies.',
+  },
+  {
+    title: 'How do you support enterprise customers?',
+    label: 'Explain your approach to supporting enterprise customers.',
+    action:
+      'How does a solutions engineer and solution architect support enterprise software customers?',
+  },
+  {
+    title: 'What is your approach to AI?',
+    label: 'Describe how you use AI to enhance knowledge work.',
+    action:
+      'What is the best approach to leveraging AI for data analysts, data engineers, and then solutions engineers?',
+  },
+  {
+    title: 'What are the key skills for a Solutions Engineer in 2024?',
+    label: 'List the key skills required for a Solutions Engineer.',
+    action: 'What are the key skills for a Solutions Engineer?',
+  },
+  {
+    title: 'How do you ensure product analytics accuracy?',
+    label: 'Explain your methods for maintaining accurate product analytics.',
+    action:
+      'How does a data practitioner or data engineer ensure product analytics accuracy?',
+  },
+  {
+    title: 'What is your approach to session recording?',
+    label: 'Describe how you leverage session recording for user insights.',
+    action: 'What is your approach to session recording?',
+  },
+  {
+    title: 'How do you implement feature flags?',
+    label: 'How do you implement feature flags?',
+    action:
+      'Explain the best process for using feature flags in product engineering development.',
+  },
+  {
+    title: 'What is your A/B testing strategy?',
+    label: 'Describe a best practice approach to A/B testing.',
+    action: 'Describe a best practice approach to A/B testing.',
+  },
+  {
+    title: 'How do you manage event pipelines?',
+    label: 'Explain best practice methods for handling event pipelines.',
+    action:
+      'What are best practices in data engineering for managing event pipelines?',
+  },
+  {
+    title: 'What is a SQL access policy?',
+    label: 'Describe how a data engineer should provide SQL access to users.',
+    action: 'Describe how a data engineer should provide SQL access to users.',
+  },
+  {
+    title: 'How do you maintain your data warehouse?',
+    label: 'Explain your approach to data warehouse management.',
+    action:
+      'How does a data engineer best maintain Snowflake or Databricks data warehouse?',
+  },
+  {
+    title: 'What is your approach to open-source community building?',
+    label: 'Describe how you build and maintain an open-source community.',
+    action: 'What is the best approach to open-source community building?',
+  },
+  {
+    title: 'How do you handle customer feedback?',
+    label:
+      'Explain a sales or solutions engineering process for managing and acting on customer feedback.',
+    action:
+      'How should a tech seller or solutions engineer handle customer feedback on the product?',
+  },
+  {
+    title: 'What is your strategy for multi-product adoption?',
+    label: 'Describe how you drive adoption of multiple products.',
+    action: 'What is a best practice strategy for multi-product adoption?',
   },
 ];
 

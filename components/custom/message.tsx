@@ -62,14 +62,6 @@ export const Message = ({
             })}
           </div>
         )}
-
-        {attachments && (
-          <div className="flex flex-row gap-2">
-            {attachments.map((attachment) => (
-              <PreviewAttachment key={attachment.url} attachment={attachment} />
-            ))}
-          </div>
-        )}
       </div>
     </motion.div>
   );
