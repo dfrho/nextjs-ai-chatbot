@@ -23,51 +23,44 @@ const suggestedActions = [
   {
     title: 'General Information:',
     label: 'Can you help me find information on the history of the internet?',
-    action:
-      'Can you help me find information on the history of the internet? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included. ',
+    action: 'Can you help me find information on the history of the internet? ',
   },
   {
     title: 'Weather:',
     label: "What's the weather like in Paris today?",
-    action:
-      "What's the weather like in Paris today? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.",
+    action: "What's the weather like in Paris today? ",
   },
   {
     title: 'How-To Guides:',
     label: 'How do I bake a chocolate cake?',
-    action:
-      'How do I bake a chocolate cake? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+    action: 'How do I bake a chocolate cake? ',
   },
   {
     title: 'Summarization:',
     label:
       'Can you summarize the key points of this article on climate change?',
     action:
-      'Can you summarize the key points of this article on climate change? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+      'Can you summarize the key points of this article on climate change? ',
   },
   {
     title: 'News and Updates:',
     label: 'What are the latest news headlines in technology?',
-    action:
-      'What are the latest news headlines in technology? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+    action: 'What are the latest news headlines in technology? ',
   },
   {
     title: 'Translation:',
     label: "Translate this text into Spanish: 'Hello, how are you?'",
-    action:
-      "Translate this text into Spanish: 'Hello, how are you? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.'",
+    action: "Translate this text into Spanish: 'Hello, how are you?'",
   },
   {
     title: 'Tips and Advice:',
     label: 'What are some tips for improving my public speaking skills?',
-    action:
-      'What are some tips for improving my public speaking skills? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included.',
+    action: 'What are some tips for improving my public speaking skills?',
   },
   {
     title: 'Recommendations:',
     label: 'Can you recommend a good book on personal development?',
-    action:
-      'Can you recommend a good book on personal development? Use maximum text complexity and propensity for complex sentences next to shorter, pithy sentences. Be conversational and one emoji can be included. ',
+    action: 'Can you recommend a good book on personal development? ',
   },
 ];
 
