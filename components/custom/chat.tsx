@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { Attachment, Message } from "ai";
-import { useChat } from "ai/react";
-import { useState } from "react";
+import { Message } from 'ai';
+import { useChat } from 'ai/react';
+import { useState } from 'react';
 
-import { Message as PreviewMessage } from "@/components/custom/message";
-import { useScrollToBottom } from "@/components/custom/use-scroll-to-bottom";
+import { Message as PreviewMessage } from '@/components/custom/message';
+import { useScrollToBottom } from '@/components/custom/use-scroll-to-bottom';
 
-import { MultimodalInput } from "./multimodal-input";
-import { Overview } from "./overview";
+import { MultimodalInput } from './multimodal-input';
+import { Overview } from './overview';
 
 export function Chat({
   id,
@@ -22,14 +22,12 @@ export function Chat({
       body: { id },
       initialMessages,
       onFinish: () => {
-        window.history.replaceState({}, "", `/chat/${id}`);
+        window.history.replaceState({}, '', `/chat/${id}`);
       },
     });
 
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
-
-  const [attachments, setAttachments] = useState<Array<Attachment>>([]);
 
   return (
     <div className="flex flex-row justify-center pb-4 md:pb-8 h-dvh bg-background">
@@ -45,7 +43,6 @@ export function Chat({
               key={message.id}
               role={message.role}
               content={message.content}
-              attachments={message.experimental_attachments}
               toolInvocations={message.toolInvocations}
             />
           ))}
@@ -63,8 +60,6 @@ export function Chat({
             handleSubmit={handleSubmit}
             isLoading={isLoading}
             stop={stop}
-            attachments={attachments}
-            setAttachments={setAttachments}
             messages={messages}
             append={append}
           />
