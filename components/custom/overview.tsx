@@ -57,14 +57,24 @@ export const Overview = () => {
           </Link>
           .
         </p>
-        <p className="flex flex-row items-center gap-2">
-          This project is available for public use from the{' '}
+        <p>
+          This version of the project is available for public use from my{' '}
           <Link
-            className="text-blue-500 dark:text-blue-400 flex items-center gap-1"
+            className="text-blue-500 dark:text-blue-400 flex items-center"
             href="https://github.com/dfrho/nextjs-ai-chatbot"
             target="_blank"
           >
-            <GitHubIcon /> GitHub repo.
+            GitHub repo.
+          </Link>
+        </p>
+        <p>
+          You can also deploy your own starter version to{' '}
+          <Link
+            className="text-blue-500 dark:text-blue-400"
+            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot&env=AUTH_SECRET,OPENAI_API_KEY&envDescription=Learn%20more%20about%20how%20to%20get%20the%20API%20Keys%20for%20the%20application&envLink=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot%2Fblob%2Fmain%2F.env.example&demo-title=AI%20Chatbot&demo-description=An%20Open-Source%20AI%20Chatbot%20Template%20Built%20With%20Next.js%20and%20the%20AI%20SDK%20by%20Vercel.&demo-url=https%3A%2F%2Fchat.vercel.ai&stores=[{%22type%22:%22postgres%22},{%22type%22:%22blob%22}]"
+            target="_blank"
+          >
+            Vercel with one click.
           </Link>
         </p>
       </div>
