@@ -47,14 +47,10 @@ export function Chat({
               key={message.id}
               role={message.role}
               content={message.content}
+              toolInvocations={message.toolInvocations}
             />
           ))}
         </div>
-      </div>
-    </div>
-  );
-}
-
         <form className="flex flex-row gap-2 relative items-end w-full md:max-w-[500px] max-w-[calc(100dvw-32px) px-4 md:px-0">
           <MultimodalInput
             input={input}

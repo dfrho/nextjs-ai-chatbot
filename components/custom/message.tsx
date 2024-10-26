@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Attachment, ToolInvocation } from "ai";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { Attachment, ToolInvocation } from 'ai';
+import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 
-import { BotIcon, UserIcon } from "./icons";
-import { Markdown } from "./markdown";
-import { PreviewAttachment } from "./preview-attachment";
-import { Weather } from "./weather";
+import { BotIcon, UserIcon } from './icons';
+import { Markdown } from './markdown';
+import { PreviewAttachment } from './preview-attachment';
+import { Weather } from './weather';
 
 export const Message = ({
   role,
@@ -27,7 +27,7 @@ export const Message = ({
       animate={{ y: 0, opacity: 1 }}
     >
       <div className="size-[24px] flex flex-col justify-center items-center shrink-0 text-zinc-400">
-        {role === "assistant" ? <BotIcon /> : <UserIcon />}
+        {role === 'assistant' ? <BotIcon /> : <UserIcon />}
       </div>
 
       <div className="flex flex-col gap-2 w-full">
@@ -37,17 +37,17 @@ export const Message = ({
           </div>
         )}
 
-        {toolInvocations && (
+        {toolInvocations && toolInvocations.length && (
           <div className="flex flex-col gap-4">
             {toolInvocations.map((toolInvocation) => {
               const { toolName, toolCallId, state } = toolInvocation;
 
-              if (state === "result") {
+              if (state === 'result') {
                 const { result } = toolInvocation;
 
                 return (
                   <div key={toolCallId}>
-                    {toolName === "getWeather" ? (
+                    {toolName === 'getWeather' ? (
                       <Weather weatherAtLocation={result} />
                     ) : null}
                   </div>
@@ -55,7 +55,7 @@ export const Message = ({
               } else {
                 return (
                   <div key={toolCallId} className="skeleton">
-                    {toolName === "getWeather" ? <Weather /> : null}
+                    {toolName === 'getWeather' ? <Weather /> : null}
                   </div>
                 );
               }
