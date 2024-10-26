@@ -17,6 +17,10 @@ export const viewport = {
   maximumScale: 1, // Disable auto-zoom on mobile Safari
 };
 
+const title = 'Solutions Engineering Chatbot Template';
+const description =
+  'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.';
+const projectUrl = 'https://quirkychat.vercel.app/';
 const ogImage = '@/images/og-image.jpg';
 
 const LIGHT_THEME_COLOR = 'hsl(0 0% 100%)';
@@ -54,13 +58,13 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
-        <meta property="og:url" content={metadata.metadataBase} />
+        <meta property="og:url" content={projectUrl} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
         <script
           dangerouslySetInnerHTML={{
