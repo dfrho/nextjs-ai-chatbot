@@ -1,61 +1,43 @@
 'use client';
 
-import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai';
+import { ArrowUpIcon } from '@radix-ui/react-icons';
+import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai'; // components/custom/multimodal-input.tsx
 import { motion } from 'framer-motion';
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-  Dispatch,
-  SetStateAction,
-  ChangeEvent,
-} from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { toast } from 'sonner';
 
-import { ArrowUpIcon, PaperclipIcon, StopIcon } from './icons';
+import { SuggestedAction } from '@/lib/suggestedActions';
+
 import useWindowSize from './use-window-size';
-import { Button } from '../ui/button';
-import { Textarea } from '../ui/textarea';
 
-const suggestedActions = [
-  {
-    title: 'What is the weather',
-    label: 'in San Francisco?',
-    action: 'What is the weather in San Francisco?',
-  },
-  {
-    title: "Answer like I'm 5,",
-    label: 'what does a sales engineer do?',
-    action: "Answer like I'm 5, what does a sales engineer do?",
-  },
-];
-
-export function MultimodalInput({
-  input,
-  setInput,
-  isLoading,
-  stop,
-  messages,
-  append,
-  handleSubmit,
-}: {
+interface MultimodalInputProps {
   input: string;
   setInput: (value: string) => void;
-  isLoading: boolean;
-  stop: () => void;
-  messages: Array<Message>;
-  append: (
-    message: Message | CreateMessage,
-    chatRequestOptions?: ChatRequestOptions
-  ) => Promise<string | null | undefined>;
   handleSubmit: (
     event?: {
       preventDefault?: () => void;
     },
     chatRequestOptions?: ChatRequestOptions
   ) => void;
-}) {
+  isLoading: boolean;
+  messages: Array<Message>;
+  stop: () => void;
+  randomSuggestedActions: SuggestedAction[];
+  append: (
+    message: Message | CreateMessage,
+    chatRequestOptions?: ChatRequestOptions
+  ) => Promise<string | null | undefined>;
+}
+
+export const MultimodalInput: React.FC<MultimodalInputProps> = ({
+  input,
+  setInput,
+  handleSubmit,
+  isLoading,
+  append,
+  stop,
+  randomSuggestedActions = [],
+}) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { width } = useWindowSize();
 
@@ -81,7 +63,6 @@ export function MultimodalInput({
     handleSubmit(undefined, {
       experimental_attachments: [],
     });
-
     if (width && width > 768) {
       textareaRef.current?.focus();
     }
@@ -89,23 +70,28 @@ export function MultimodalInput({
 
   return (
     <div className="relative w-full flex flex-col gap-4">
-      {messages.length === 0 && (
-        <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
-          {suggestedActions.map((suggestedAction, index) => (
+      <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
+        {Array.isArray(randomSuggestedActions) &&
+          randomSuggestedActions.map((suggestedAction, index) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.05 * index }}
               key={index}
-              className={index > 1 ? 'hidden sm:block' : 'block'}
+              className="block"
             >
               <button
-                onClick={async () => {
-                  append({
-                    role: 'user',
-                    content: suggestedAction.action,
-                  });
+                onClick={async (event) => {
+                  event.preventDefault();
+                  try {
+                    await append({
+                      role: 'user',
+                      content: suggestedAction.action,
+                    });
+                  } catch (error) {
+                    console.error('Error handling suggested action:', error);
+                  }
                 }}
                 className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-lg p-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
               >
@@ -116,15 +102,13 @@ export function MultimodalInput({
               </button>
             </motion.div>
           ))}
-        </div>
-      )}
-
-      <Textarea
+      </div>
+      <textarea
         ref={textareaRef}
-        placeholder="Send a message..."
         value={input}
         onChange={handleInput}
-        className="min-h-[24px] overflow-hidden resize-none rounded-lg text-base bg-muted"
+        placeholder="Send a question..."
+        className="min-h-[24px] p-3 overflow-hidden resize-none rounded-lg text-base bg-muted"
         rows={3}
         onKeyDown={(event) => {
           if (event.key === 'Enter' && !event.shiftKey) {
@@ -138,29 +122,27 @@ export function MultimodalInput({
           }
         }}
       />
-
       {isLoading ? (
-        <Button
+        <button
           className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
           onClick={(event) => {
             event.preventDefault();
             stop();
           }}
         >
-          <StopIcon size={14} />
-        </Button>
+          Stop
+        </button>
       ) : (
-        <Button
+        <button
           className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
           onClick={(event) => {
             event.preventDefault();
             submitForm();
           }}
-          disabled={input.length === 0}
         >
-          <ArrowUpIcon size={14} />
-        </Button>
+          <ArrowUpIcon className="size-5" />
+        </button>
       )}
     </div>
   );
-}
+};

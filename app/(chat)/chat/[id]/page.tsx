@@ -1,11 +1,12 @@
-import { CoreMessage } from "ai";
-import { notFound } from "next/navigation";
+import { CoreMessage } from 'ai';
+import { notFound } from 'next/navigation';
 
-import { auth } from "@/app/(auth)/auth";
-import { Chat as PreviewChat } from "@/components/custom/chat";
-import { getChatById } from "@/db/queries";
-import { Chat } from "@/db/schema";
-import { convertToUIMessages, generateUUID } from "@/lib/utils";
+import { auth } from '@/app/(auth)/auth';
+import { Chat as PreviewChat } from '@/components/custom/chat';
+import { getChatById } from '@/db/queries';
+import { Chat } from '@/db/schema';
+import { fetchSuggestedActions, SuggestedAction } from '@/lib/suggestedActions'; // Import from the new file
+import { convertToUIMessages, generateUUID } from '@/lib/utils';
 
 export default async function Page(props: { params: Promise<any> }) {
   const params = await props.params;
@@ -16,10 +17,13 @@ export default async function Page(props: { params: Promise<any> }) {
     notFound();
   }
 
+  const randomSuggestedActions = await fetchSuggestedActions(); // Fetch the suggested actions
+
   // type casting
-  const chat: Chat = {
+  const chat: Chat & { randomSuggestedActions: SuggestedAction[] } = {
     ...chatFromDb,
     messages: convertToUIMessages(chatFromDb.messages as Array<CoreMessage>),
+    randomSuggestedActions, // Use the fetched suggested actions
   };
 
   const session = await auth();
@@ -32,5 +36,11 @@ export default async function Page(props: { params: Promise<any> }) {
     return notFound();
   }
 
-  return <PreviewChat id={chat.id} initialMessages={chat.messages} />;
+  return (
+    <PreviewChat
+      randomSuggestedActions={chat.randomSuggestedActions}
+      id={chat.id}
+      initialMessages={chat.messages}
+    />
+  );
 }
