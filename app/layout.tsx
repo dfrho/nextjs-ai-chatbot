@@ -8,16 +8,16 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://quirkychat.vercel.app/'),
-  url: 'https://quirkychat.vercel.app/',
   title: 'Solutions Engineering Chatbot Template',
   description:
     'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.',
-  ogImage: '@/images/og-image.jpg',
 };
 
 export const viewport = {
   maximumScale: 1, // Disable auto-zoom on mobile Safari
 };
+
+const ogImage = '@/images/og-image.jpg';
 
 const LIGHT_THEME_COLOR = 'hsl(0 0% 100%)';
 const DARK_THEME_COLOR = 'hsl(240deg 10% 3.92%)';
@@ -56,12 +56,12 @@ export default async function RootLayout({
       <head>
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.ogImage} />
-        <meta property="og:url" content={metadata.url} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={metadata.metadataBase} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={metadata.ogImage} />
+        <meta name="twitter:image" content={ogImage} />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_COLOR_SCRIPT,
