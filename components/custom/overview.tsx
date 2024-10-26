@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-import { LogoOpenAI, MessageIcon, VercelIcon } from "./icons";
+import { LogoOpenAI, MessageIcon, VercelIcon, GitHubIcon } from './icons';
 
 export const Overview = () => {
   return (
@@ -18,24 +18,36 @@ export const Overview = () => {
           <VercelIcon />
           <span>+</span>
           <MessageIcon />
+          <span>+</span>
+          <GitHubIcon />
         </p>
         <p>
           This is an open source Chatbot template built with Next.js and the AI
-          SDK by Vercel. It uses the{" "}
-          <code className="rounded-md bg-muted px-1 py-0.5">streamText</code>{" "}
-          function in the server and the{" "}
+          SDK by Vercel. It uses the{' '}
+          <code className="rounded-md bg-muted px-1 py-0.5">streamText</code>{' '}
+          function on the server and the{' '}
           <code className="rounded-md bg-muted px-1 py-0.5">useChat</code> hook
           on the client to create a seamless chat experience.
         </p>
         <p>
-          {" "}
-          You can learn more about the AI SDK by visiting the{" "}
+          You can learn more about the AI SDK by visiting the{' '}
           <Link
             className="text-blue-500 dark:text-blue-400"
             href="https://sdk.vercel.ai/docs"
             target="_blank"
           >
             Docs
+          </Link>
+          .
+        </p>
+        <p>
+          This project is available for public use from my GitHub repo at{' '}
+          <Link
+            className="text-blue-500 dark:text-blue-400"
+            href="https://github.com/dfrho/nextjs-ai-chatbot"
+            target="_blank"
+          >
+            GitHub
           </Link>
           .
         </p>
