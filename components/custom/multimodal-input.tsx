@@ -1,6 +1,6 @@
 'use client';
 
-import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai';
+import { ChatRequestOptions, CreateMessage, Message } from 'ai';
 import { motion } from 'framer-motion';
 import React, {
   useRef,
@@ -14,7 +14,6 @@ import React, {
 import { toast } from 'sonner';
 
 import { ArrowUpIcon, StopIcon } from './icons';
-import { PreviewAttachment } from './preview-attachment';
 import useWindowSize from './use-window-size';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
@@ -69,8 +68,6 @@ export function MultimodalInput({
   setInput,
   isLoading,
   stop,
-  attachments,
-  setAttachments,
   messages,
   append,
   handleSubmit,
@@ -79,8 +76,6 @@ export function MultimodalInput({
   setInput: (value: string) => void;
   isLoading: boolean;
   stop: () => void;
-  attachments: Array<Attachment>;
-  setAttachments: Dispatch<SetStateAction<Array<Attachment>>>;
   messages: Array<Message>;
   append: (
     message: Message | CreateMessage,
@@ -119,15 +114,13 @@ export function MultimodalInput({
 
   const submitForm = useCallback(() => {
     handleSubmit(undefined, {
-      experimental_attachments: attachments,
+      experimental_attachments: [],
     });
-
-    setAttachments([]);
 
     if (width && width > 768) {
       textareaRef.current?.focus();
     }
-  }, [attachments, handleSubmit, setAttachments, width]);
+  }, [handleSubmit, width]);
 
   const uploadFile = async (file: File) => {
     const formData = new FormData();
@@ -159,7 +152,7 @@ export function MultimodalInput({
 
   return (
     <div className="relative w-full flex flex-col gap-4">
-      {messages.length === 0 && (
+      {messages.length < 4 && (
         <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
           {suggestedActions.map((suggestedAction, index) => (
             <motion.div
