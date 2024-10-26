@@ -41,13 +41,13 @@ export const Overview = () => {
           .
         </p>
         <p>
-          This project is available for public use from my GitHub repo at{' '}
+          This project is available for public use from my{' '}
           <Link
             className="text-blue-500 dark:text-blue-400"
             href="https://github.com/dfrho/nextjs-ai-chatbot"
             target="_blank"
           >
-            <GitHubIcon />
+            GitHub <GitHubIcon /> repo
           </Link>
           .
         </p>
