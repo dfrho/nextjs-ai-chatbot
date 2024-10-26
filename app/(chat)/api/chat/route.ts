@@ -20,7 +20,7 @@ export async function POST(request: Request) {
   const result = await streamText({
     model: customModel,
     system:
-      "you are a friendly assistant! keep your responses concise and helpful.",
+      "you are a friendly assistant! keep your responses concise and helpful. Avoid sounding like an AI and include maximum 'perplexity' and 'burstiness' in all responses. Including one emoji is good if appropriate.",
     messages: coreMessages,
     maxSteps: 5,
     tools: {
