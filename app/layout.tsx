@@ -7,9 +7,12 @@ import { ThemeProvider } from '@/components/custom/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  metadataBase: new URL('https://quirkychat.vercel.app/'),
+  url: 'https://quirkychat.vercel.app/',
+  title: 'Solutions Engineering Chatbot Template',
+  description:
+    'Next.js Solutions Engineering chatbot template using the Vercel AI SDK.',
+  ogImage: '@/images/og-image.jpg',
 };
 
 export const viewport = {
@@ -51,6 +54,14 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.ogImage} />
+        <meta property="og:url" content={metadata.url} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content={metadata.ogImage} />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_COLOR_SCRIPT,
