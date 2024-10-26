@@ -34,45 +34,6 @@ export const GitHubIcon = ({ size = 17 }) => (
   </svg>
 );
 
-export const LogoOpenAI = ({ size = 17 }) => (
-  <svg
-    height={size}
-    viewBox="0 0 32 32"
-    width={size}
-    style={{ color: 'currentcolor' }}
-  >
-    <path
-      d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 29.6c-7.514 0-13.6-6.086-13.6-13.6S8.486 2.4 16 2.4 29.6 8.486 29.6 16 23.514 29.6 16 29.6z"
-      fill="currentColor"
-    />
-  </svg>
-);
-
-export const MessageIcon = ({ size = 17 }) => (
-  <svg
-    height={size}
-    viewBox="0 0 24 24"
-    width={size}
-    style={{ color: 'currentcolor' }}
-  >
-    <path
-      d="M12 0C5.373 0 0 4.477 0 10c0 2.387.936 4.568 2.5 6.25V24l5.5-3.5c1.5.5 3.5.5 5.5.5 6.627 0 12-4.477 12-10S18.627 0 12 0z"
-      fill="currentColor"
-    />
-  </svg>
-);
-
-export const VercelIcon = ({ size = 17 }) => (
-  <svg
-    height={size}
-    viewBox="0 0 283 64"
-    width={size}
-    style={{ color: 'currentcolor' }}
-  >
-    <path d="M141.5 0L283 64H0L141.5 0z" fill="currentColor" />
-  </svg>
-);
-
 export const UserIcon = () => {
   return (
     <svg
