@@ -19,7 +19,7 @@ export const Overview = () => {
           <span>+</span>
           <MessageIcon />
           <span>+</span>
-          <GitHubIcon />
+          <VercelIcon />
         </p>
         <p>
           This is an open source Chatbot template built with Next.js and the AI
@@ -47,7 +47,7 @@ export const Overview = () => {
             href="https://github.com/dfrho/nextjs-ai-chatbot"
             target="_blank"
           >
-            GitHub
+            <GitHubIcon />
           </Link>
           .
         </p>
