@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { usePostHog } from 'posthog-js/react';
+import { useState, useEffect } from 'react';
+
 import {
   AlertDialog,
   AlertDialogAction,

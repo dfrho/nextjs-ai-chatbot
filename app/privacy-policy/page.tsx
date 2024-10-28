@@ -1,5 +1,6 @@
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 
 export default function PrivacyPolicy() {
   return (
@@ -50,8 +51,8 @@ export default function PrivacyPolicy() {
         <h2 className="text-2xl font-semibold mb-4">Data Security</h2>
         <p className="mb-4">
           We take the security of your data seriously. Passwords are hashed so
-          we can't see them, only your device. Search queries are saved for your
-          convenience and can be deleted.
+          neither humans nor our servers can&apos;t see them, only your device.
+          Search queries are saved for your convenience and can be deleted.
         </p>
       </section>
 
