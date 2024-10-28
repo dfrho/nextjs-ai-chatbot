@@ -4,6 +4,8 @@ import { Toaster } from 'sonner';
 import { Navbar } from '@/components/custom/navbar';
 import { ThemeProvider } from '@/components/custom/theme-provider';
 
+import { Providers } from './providers';
+
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -79,9 +81,11 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Toaster position="top-center" />
-          <Navbar />
-          {children}
+          <Providers>
+            <Toaster position="top-center" />
+            <Navbar />
+            {children}
+          </Providers>
         </ThemeProvider>
       </body>
     </html>
