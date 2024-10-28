@@ -4,9 +4,10 @@
     "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier",
-    "plugin:tailwindcss/recommended"
+    "plugin:tailwindcss/recommended",
+    "plugin:jest/recommended"
   ],
-  "plugins": ["import", "tailwindcss"],
+  "plugins": ["import", "tailwindcss", "jest"],
   "rules": {
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "off",
@@ -36,6 +37,9 @@
         "alwaysTryTypes": true
       }
     }
+  },
+  "env": {
+    "jest": true
   },
   "ignorePatterns": ["**/components/ui/**"]
 }
