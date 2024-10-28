@@ -31,9 +31,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">
-          How We Use Your Information
-        </h2>
+        <h2 className="text-2xl font-semibold mb-4">How We Use Your Data</h2>
         <ul className="list-disc list-inside mb-4">
           <li className="mb-2">To provide and maintain our service</li>
           <li className="mb-2">To authenticate users and secure accounts</li>
