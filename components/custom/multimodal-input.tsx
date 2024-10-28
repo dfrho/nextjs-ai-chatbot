@@ -5,8 +5,10 @@ import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai'; // 
 import { motion } from 'framer-motion';
 import React, { useRef, useEffect, useCallback } from 'react';
 import { toast } from 'sonner';
+import posthog from 'posthog-js';
 
 import { SuggestedAction } from '@/lib/suggestedActions';
+import { PostHogProviderWrapper } from '@/app/providers';
 
 import useWindowSize from './use-window-size';
 
@@ -63,86 +65,101 @@ export const MultimodalInput: React.FC<MultimodalInputProps> = ({
     handleSubmit(undefined, {
       experimental_attachments: [],
     });
+    if (posthog) {
+      posthog.capture('custom_form_question_sent');
+    }
     if (width && width > 768) {
       textareaRef.current?.focus();
     }
   }, [handleSubmit, width]);
 
   return (
-    <div className="relative w-full flex flex-col gap-4">
-      <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
-        {Array.isArray(randomSuggestedActions) &&
-          randomSuggestedActions.map((suggestedAction, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ delay: 0.05 * index }}
-              key={index}
-              className="block"
-            >
-              <button
-                onClick={async (event) => {
-                  event.preventDefault();
-                  try {
-                    await append({
-                      role: 'user',
-                      content: suggestedAction.action,
-                    });
-                  } catch (error) {
-                    console.error('Error handling suggested action:', error);
-                  }
-                }}
-                className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-lg p-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
+    <PostHogProviderWrapper>
+      <div className="relative w-full flex flex-col gap-4">
+        <div className="grid sm:grid-cols-2 gap-2 w-full md:px-0 mx-auto md:max-w-[500px]">
+          {Array.isArray(randomSuggestedActions) &&
+            randomSuggestedActions.map((suggestedAction, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.05 * index }}
+                key={index}
+                className="block"
               >
-                <span className="font-medium">{suggestedAction.title}</span>
-                <span className="text-zinc-500 dark:text-zinc-400">
-                  {suggestedAction.label}
-                </span>
-              </button>
-            </motion.div>
-          ))}
-      </div>
-      <textarea
-        ref={textareaRef}
-        value={input}
-        onChange={handleInput}
-        placeholder="Send a question..."
-        className="min-h-[24px] p-3 overflow-hidden resize-none rounded-lg text-base bg-muted"
-        rows={3}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
+                <button
+                  onClick={async (event) => {
+                    event.preventDefault();
+                    try {
+                      await append({
+                        role: 'user',
+                        content: suggestedAction.action,
+                      });
+                      // Create PostHog event with event name = 'suggestion_action_click'
+                      if (posthog) {
+                        posthog.capture('suggestion_action_click', {
+                          action: suggestedAction.action,
+                          title: suggestedAction.title,
+                          label: suggestedAction.label,
+                        });
+                      }
+                    } catch (error) {
+                      console.error('Error handling suggested action:', error);
+                    }
+                  }}
+                  className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-lg p-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
+                >
+                  <span className="font-medium">{suggestedAction.title}</span>
+                  <span className="text-zinc-500 dark:text-zinc-400">
+                    {suggestedAction.label}
+                  </span>
+                </button>
+              </motion.div>
+            ))}
+        </div>
+        <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={handleInput}
+          placeholder="Send a question..."
+          className="min-h-[24px] p-3 overflow-hidden resize-none rounded-lg text-base bg-muted"
+          rows={3}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && !event.shiftKey) {
+              event.preventDefault();
 
-            if (isLoading) {
-              toast.error('Please wait for the model to finish its response!');
-            } else {
-              submitForm();
+              if (isLoading) {
+                toast.error(
+                  'Please wait for the model to finish its response!'
+                );
+              } else {
+                submitForm();
+              }
             }
-          }
-        }}
-      />
-      {isLoading ? (
-        <button
-          className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
-          onClick={(event) => {
-            event.preventDefault();
-            stop();
           }}
-        >
-          Stop
-        </button>
-      ) : (
-        <button
-          className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
-          onClick={(event) => {
-            event.preventDefault();
-            submitForm();
-          }}
-        >
-          <ArrowUpIcon className="size-5" />
-        </button>
-      )}
-    </div>
+        />
+        {isLoading ? (
+          <button
+            className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
+            onClick={(event) => {
+              event.preventDefault();
+              stop();
+            }}
+          >
+            Stop
+          </button>
+        ) : (
+          <button
+            className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5"
+            onClick={(event) => {
+              event.preventDefault();
+              submitForm();
+            }}
+          >
+            <ArrowUpIcon className="size-5" />
+          </button>
+        )}
+      </div>
+    </PostHogProviderWrapper>
   );
 };
