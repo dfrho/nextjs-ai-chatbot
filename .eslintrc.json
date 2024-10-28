@@ -6,8 +6,9 @@
     "prettier",
     "plugin:tailwindcss/recommended"
   ],
-  "plugins": ["import", "tailwindcss"],
+  "plugins": ["import", "tailwindcss", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "off",
     "import/order": [
