@@ -39,10 +39,6 @@ export const Chat: React.FC<ChatProps> = ({
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
 
-  useEffect(() => {
-    console.log('Messages:', messages);
-  }, [messages]);
-
   return (
     <div className="flex flex-row justify-center pb-4 md:pb-8 h-dvh bg-background">
       <div className="flex flex-col justify-between items-center gap-4">
