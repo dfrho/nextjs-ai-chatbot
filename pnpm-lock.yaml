@@ -4,16 +4,14 @@ specifiers:
   '@ai-sdk/openai': ^0.0.60
   '@radix-ui/react-alert-dialog': ^1.1.2
   '@radix-ui/react-dialog': ^1.1.2
-  '@radix-ui/react-dropdown-menu': ^2.1.2
+  '@radix-ui/react-dropdown-menu': ^2.1.1
   '@radix-ui/react-icons': ^1.3.0
   '@radix-ui/react-label': ^2.1.0
   '@radix-ui/react-slot': ^1.1.0
-  '@radix-ui/react-tooltip': ^1.1.3
   '@radix-ui/react-visually-hidden': ^1.1.0
-  '@types/react': ^18.3.12
-  '@types/react-dom': ^18.3.1
-  '@vercel/analytics': ^1.3.2
-  '@vercel/blob': ^0.24.1
+  '@types/pdf-parse': ^1.1.4
+  '@types/react': ^18
+  '@types/react-dom': ^18
   '@vercel/postgres': ^0.10.0
   ai: 3.4.9
   bcrypt-ts: ^5.0.2
@@ -21,40 +19,37 @@ specifiers:
   classnames: ^2.5.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  depcheck: ^1.4.2
+  depcheck: ^1.4.7
   dotenv: ^16.4.5
   drizzle-kit: ^0.25.0
-  drizzle-orm: ^0.34.1
-  eslint: ^8.57.1
-  eslint-config-next: ^14.2.5
+  drizzle-orm: ^0.34.0
+  eslint: ^8.57.0
+  eslint-config-next: 14.2.5
   eslint-config-prettier: ^9.1.0
   eslint-import-resolver-typescript: ^3.6.3
   eslint-plugin-import: ^2.31.0
   eslint-plugin-tailwindcss: ^3.17.5
-  framer-motion: ^11.11.10
-  geist: ^1.3.1
+  framer-motion: ^11.3.19
   lucide-react: ^0.446.0
-  next: ^15.0.1
-  next-auth: ^5.0.0-beta.25
+  next: 15.0.1
+  next-auth: 5.0.0-beta.25
   next-themes: ^0.3.0
-  postcss: ^8.4.47
-  postgres: ^3.4.5
+  postcss: ^8
+  postgres: ^3.4.4
   posthog-js: ^1.176.0
   prettier: ^3.3.3
-  react: ^18.3.1
-  react-dom: ^18.3.1
+  react: 18.3.1
+  react-dom: 18.3.1
   react-markdown: ^9.0.1
   remark-gfm: ^4.0.0
-  server-only: ^0.0.1
   sonner: ^1.5.0
   swr: ^2.2.5
-  tailwind-merge: ^2.5.4
-  tailwindcss: ^3.4.14
+  tailwind-merge: ^2.5.2
+  tailwindcss: ^3.4.1
   tailwindcss-animate: ^1.0.7
   ts-node: ^10.9.2
   tsx: ^4.19.1
-  typescript: ^5.6.3
-  usehooks-ts: ^3.1.0
+  typescript: ^5
   zod: ^3.23.8
 
 dependencies:
@@ -65,10 +60,7 @@ dependencies:
   '@radix-ui/react-icons': 1.3.0_react@18.3.1
   '@radix-ui/react-label': 2.1.0_mn6whcxlx7so2an4c3a4lp7zmq
   '@radix-ui/react-slot': 1.1.0_ryhct6r6jz2fex4xfo2quarxhi
-  '@radix-ui/react-tooltip': 1.1.3_mn6whcxlx7so2an4c3a4lp7zmq
   '@radix-ui/react-visually-hidden': 1.1.0_mn6whcxlx7so2an4c3a4lp7zmq
-  '@vercel/analytics': 1.3.2_next@15.0.1+react@18.3.1
-  '@vercel/blob': 0.24.1
   '@vercel/postgres': 0.10.0
   ai: 3.4.9_react@18.3.1+zod@3.23.8
   bcrypt-ts: 5.0.2
@@ -79,26 +71,24 @@ dependencies:
   dotenv: 16.4.5
   drizzle-orm: 0.34.1_sxe35bahrcia353rqltrpv22me
   framer-motion: 11.11.10_nnrd3gsncyragczmpvfhocinkq
-  geist: 1.3.1_next@15.0.1
   lucide-react: 0.446.0_react@18.3.1
   next: 15.0.1_nnrd3gsncyragczmpvfhocinkq
   next-auth: 5.0.0-beta.25_next@15.0.1+react@18.3.1
   next-themes: 0.3.0_nnrd3gsncyragczmpvfhocinkq
   postgres: 3.4.5
-  posthog-js: 1.176.1
+  posthog-js: 1.177.0
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
   react-markdown: 9.0.1_ryhct6r6jz2fex4xfo2quarxhi
   remark-gfm: 4.0.0
-  server-only: 0.0.1
   sonner: 1.5.0_nnrd3gsncyragczmpvfhocinkq
   swr: 2.2.5_react@18.3.1
   tailwind-merge: 2.5.4
   tailwindcss-animate: 1.0.7_tailwindcss@3.4.14
-  usehooks-ts: 3.1.0_react@18.3.1
   zod: 3.23.8
 
 devDependencies:
+  '@types/pdf-parse': 1.1.4
   '@types/react': 18.3.12
   '@types/react-dom': 18.3.1
   depcheck: 1.4.7
@@ -1047,11 +1037,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fastify/busboy/2.1.1:
-    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
-    engines: {node: '>=14'}
-    dev: false
-
   /@floating-ui/core/1.6.8:
     resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
     dependencies:
@@ -1904,37 +1889,6 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@radix-ui/react-tooltip/1.1.3_mn6whcxlx7so2an4c3a4lp7zmq:
-    resolution: {integrity: sha512-Z4w1FIS0BqVFI2c1jZvb/uDVJijJjJ2ZMuPV81oVgTZ7g3BZxobplnMVvXtFWgtozdvYJ+MFWtwkM5S2HnAong==}
-    peerDependencies:
-      '@types/react': '*'
-      '@types/react-dom': '*'
-      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
-      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-    dependencies:
-      '@radix-ui/primitive': 1.1.0
-      '@radix-ui/react-compose-refs': 1.1.0_ryhct6r6jz2fex4xfo2quarxhi
-      '@radix-ui/react-context': 1.1.1_ryhct6r6jz2fex4xfo2quarxhi
-      '@radix-ui/react-dismissable-layer': 1.1.1_mn6whcxlx7so2an4c3a4lp7zmq
-      '@radix-ui/react-id': 1.1.0_ryhct6r6jz2fex4xfo2quarxhi
-      '@radix-ui/react-popper': 1.2.0_mn6whcxlx7so2an4c3a4lp7zmq
-      '@radix-ui/react-portal': 1.1.2_mn6whcxlx7so2an4c3a4lp7zmq
-      '@radix-ui/react-presence': 1.1.1_mn6whcxlx7so2an4c3a4lp7zmq
-      '@radix-ui/react-primitive': 2.0.0_mn6whcxlx7so2an4c3a4lp7zmq
-      '@radix-ui/react-slot': 1.1.0_ryhct6r6jz2fex4xfo2quarxhi
-      '@radix-ui/react-use-controllable-state': 1.1.0_ryhct6r6jz2fex4xfo2quarxhi
-      '@radix-ui/react-visually-hidden': 1.1.0_mn6whcxlx7so2an4c3a4lp7zmq
-      '@types/react': 18.3.12
-      '@types/react-dom': 18.3.1
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
-    dev: false
-
   /@radix-ui/react-use-callback-ref/1.1.0_ryhct6r6jz2fex4xfo2quarxhi:
     resolution: {integrity: sha512-CasTfvsy+frcFkbXtSJ2Zu9JHpN8TYKxkgJGWbjiZhFivxaeW7rMeZt7QELGVLaYVfFMsKHjb7Ak0nMEe+2Vfw==}
     peerDependencies:
@@ -2129,6 +2083,10 @@ packages:
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
     dev: true
 
+  /@types/pdf-parse/1.1.4:
+    resolution: {integrity: sha512-+gbBHbNCVGGYw1S9lAIIvrHW47UYOhMIFUsJcMkMrzy1Jf0vulBN3XQIjPgnoOXveMuHnF3b57fXROnY/Or7eg==}
+    dev: true
+
   /@types/pg/8.11.6:
     resolution: {integrity: sha512-/2WmmBXHLsfRqzfHW7BNZ8SbYzE8OSk7i3WjFYvfgRHj7S1xj+16Je5fUKv3lVdVzk/zn9TXOqf+avFCFIE0yQ==}
     dependencies:
@@ -2225,32 +2183,6 @@ packages:
 
   /@ungap/structured-clone/1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
-
-  /@vercel/analytics/1.3.2_next@15.0.1+react@18.3.1:
-    resolution: {integrity: sha512-n/Ws7skBbW+fUBMeg+jrT30+GP00jTHvCcL4fuVrShuML0uveEV/4vVUdvqEVnDgXIGfLm0GXW5EID2mCcRXhg==}
-    peerDependencies:
-      next: '>= 13'
-      react: ^18.0 || ^19.0 || ^19.0.0-rc
-    peerDependenciesMeta:
-      next:
-        optional: true
-      react:
-        optional: true
-    dependencies:
-      next: 15.0.1_nnrd3gsncyragczmpvfhocinkq
-      react: 18.3.1
-      server-only: 0.0.1
-    dev: false
-
-  /@vercel/blob/0.24.1:
-    resolution: {integrity: sha512-wHzgKzvAuF4tRDoXk3wGBYzQZ9z2fLr4oftiR1hOclPEdA1aj2/0mizvO2l5w91eZlTAaFth0S1DlqrrXqpntg==}
-    engines: {node: '>=16.14'}
-    dependencies:
-      async-retry: 1.3.3
-      bytes: 3.1.2
-      is-buffer: 2.0.5
-      undici: 5.28.4
-    dev: false
 
   /@vercel/postgres/0.10.0:
     resolution: {integrity: sha512-fSD23DxGND40IzSkXjcFcxr53t3Tiym59Is0jSYIFpG4/0f0KO9SGtcp1sXiebvPaGe7N/tU05cH4yt2S6/IPg==}
@@ -2539,12 +2471,6 @@ packages:
     resolution: {integrity: sha512-OH/2E5Fg20h2aPrbe+QL8JZQFko0YZaF+j4mnQ7BGhfavO7OpSLa8a0y9sBwomHdSbkhTS8TQNayBfnW5DwbvQ==}
     dev: true
 
-  /async-retry/1.3.3:
-    resolution: {integrity: sha512-wfr/jstw9xNi/0teMHrRW7dsz3Lt5ARhYNZ2ewpadnhaIp5mbALhOAP+EAdsC7t4Z6wqsDVv9+W6gm1Dk9mEyw==}
-    dependencies:
-      retry: 0.13.1
-    dev: false
-
   /available-typed-arrays/1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
@@ -2613,11 +2539,6 @@ packages:
     engines: {node: '>=10.16.0'}
     dependencies:
       streamsearch: 1.1.0
-    dev: false
-
-  /bytes/3.1.2:
-    resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
-    engines: {node: '>= 0.8'}
     dev: false
 
   /call-bind/1.0.7:
@@ -3961,14 +3882,6 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
-  /geist/1.3.1_next@15.0.1:
-    resolution: {integrity: sha512-Q4gC1pBVPN+D579pBaz0TRRnGA4p9UK6elDY/xizXdFk/g4EKR5g0I+4p/Kj6gM0SajDBZ/0FvDV9ey9ud7BWw==}
-    peerDependencies:
-      next: '>=13.2.0'
-    dependencies:
-      next: 15.0.1_nnrd3gsncyragczmpvfhocinkq
-    dev: false
-
   /get-caller-file/2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -4303,11 +4216,6 @@ packages:
       has-tostringtag: 1.0.2
     dev: true
 
-  /is-buffer/2.0.5:
-    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
-    engines: {node: '>=4'}
-    dev: false
-
   /is-bun-module/1.2.1:
     resolution: {integrity: sha512-AmidtEM6D6NmUiLOvvU7+IePxjEjOzra2h0pSrsfSAcXwl/83zLLXDByafUJy9k/rKK0pvXMLdwKwGHlX2Ke6Q==}
     dependencies:
@@ -4631,10 +4539,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
-
-  /lodash.debounce/4.0.8:
-    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-    dev: false
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -5602,8 +5506,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /posthog-js/1.176.1:
-    resolution: {integrity: sha512-0adS2U9tcC4it90MInlpRzfafbov/QwEseyumsX11dD5lodn2mx1B5gNxDkMr/MwiKgyrZFg+KkA8u2+UquJ3Q==}
+  /posthog-js/1.177.0:
+    resolution: {integrity: sha512-0Qt3qTkyfsFW89bveqEzYhhX8YRNFAES9OqhzuxbvbHId/PSyxx/Pzgmgp+N5k45lon3ibwYRAbTlQ4yQacODQ==}
     dependencies:
       core-js: 3.38.1
       fflate: 0.4.8
@@ -5882,11 +5786,6 @@ packages:
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
-  /retry/0.13.1:
-    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
-    engines: {node: '>= 4'}
-    dev: false
-
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
@@ -5946,10 +5845,6 @@ packages:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
-
-  /server-only/0.0.1:
-    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
-    dev: false
 
   /set-function-length/1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
@@ -6475,13 +6370,6 @@ packages:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: false
 
-  /undici/5.28.4:
-    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
-    engines: {node: '>=14.0'}
-    dependencies:
-      '@fastify/busboy': 2.1.1
-    dev: false
-
   /unified/11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
     dependencies:
@@ -6569,16 +6457,6 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 18.3.1
-    dev: false
-
-  /usehooks-ts/3.1.0_react@18.3.1:
-    resolution: {integrity: sha512-bBIa7yUyPhE1BCc0GmR96VU/15l/9gP1Ch5mYdLcFBaFGQsdmXkvjV0TtOqW1yUd6VjIwDunm+flSciCQXujiw==}
-    engines: {node: '>=16.15.0'}
-    peerDependencies:
-      react: ^16.8.0  || ^17 || ^18
-    dependencies:
-      lodash.debounce: 4.0.8
       react: 18.3.1
     dev: false
 
